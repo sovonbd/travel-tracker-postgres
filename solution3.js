@@ -28,10 +28,10 @@ async function checkVisisted() {
 }
 
 // GET home page
-// app.get("/", async (req, res) => {
-//   const countries = await checkVisisted();
-//   res.render("index.ejs", { countries: countries, total: countries.length });
-// });
+app.get("/", async (req, res) => {
+  const countries = await checkVisisted();
+  res.render("index.ejs", { countries: countries, total: countries.length });
+});
 
 //INSERT new country
 app.post("/add", async (req, res) => {
