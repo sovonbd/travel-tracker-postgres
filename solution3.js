@@ -14,24 +14,24 @@ const db = new pg.Client({
 });
 db.connect();
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static("public"));
+// app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(express.static("public"));
 
-async function checkVisisted() {
-  const result = await db.query("SELECT country_code FROM visited_countries");
+// async function checkVisisted() {
+//   const result = await db.query("SELECT country_code FROM visited_countries");
 
-  let countries = [];
-  result.rows.forEach((country) => {
-    countries.push(country.country_code);
-  });
-  return countries;
-}
+//   let countries = [];
+//   result.rows.forEach((country) => {
+//     countries.push(country.country_code);
+//   });
+//   return countries;
+// }
 
-// GET home page
-app.get("/", async (req, res) => {
-  const countries = await checkVisisted();
-  res.render("index.ejs", { countries: countries, total: countries.length });
-});
+// // GET home page
+// app.get("/", async (req, res) => {
+//   const countries = await checkVisisted();
+//   res.render("index.ejs", { countries: countries, total: countries.length });
+// });
 
 //INSERT new country
 app.post("/add", async (req, res) => {
